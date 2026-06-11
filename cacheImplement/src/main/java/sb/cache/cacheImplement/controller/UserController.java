@@ -19,4 +19,18 @@ public class UserController {
     public ResponseEntity<User_Table> get(@RequestParam Integer id) throws InterruptedException {
         return new ResponseEntity<>(userService.get(id), HttpStatus.OK);
     }
+    @PutMapping("/put")
+    public ResponseEntity<User_Table> put(@RequestParam Integer id, @RequestParam String email) {
+        return new ResponseEntity<>(userService.update(id, email), HttpStatus.ACCEPTED);
+    }
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> delete(@RequestParam Integer id) {
+        userService.delete(id);
+        return new ResponseEntity<>("Successfully deleted", HttpStatus.GONE);
+    }
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<String> deleteAll() {
+        userService.deleteAll();
+        return new ResponseEntity<>("Successfully deleted all data from cache", HttpStatus.GONE);
+    }
 }
