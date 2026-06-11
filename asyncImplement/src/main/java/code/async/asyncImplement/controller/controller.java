@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 @RestController
@@ -38,8 +40,11 @@ public class controller {
     @GetMapping("/combine")
     public CompletableFuture<ResponseEntity<combine.data>> data(@RequestParam Integer a, @RequestParam Integer b, @RequestParam String value) throws InterruptedException {
         CompletableFuture<combine.data1> vdata1 = userService.data1(a);
+        IO.println("Data-1 API");
         CompletableFuture<combine.data2> vdata2 = userService.data2(b);
+        IO.println("Data-2 API");
         CompletableFuture<combine.data3> vdata3 = userService.data3(value);
+        IO.println("Data-3 API");
         //thenApply    -> transform result
         //thenCompose  -> call another async method after first result
         //thenCombine  -> combine two independent futures
@@ -69,5 +74,17 @@ public class controller {
                     );
                     return ResponseEntity.internalServerError().body(data);
                 });
+    }
+    @GetMapping("cpuExe")
+    public CompletableFuture<ResponseEntity<?>> exe(@RequestParam int from, @RequestParam int to) {
+        long time1 = System.currentTimeMillis();
+        return userService.cpuExe(from, to).thenApply( sum -> {
+            Map<String, Object> map = new HashMap<>();
+            map.put("from", from);
+            map.put("to", to);
+            map.put("result", sum);
+            map.put("time", System.currentTimeMillis() - time1);
+            return ResponseEntity.ok(map);
+        });
     }
 }
