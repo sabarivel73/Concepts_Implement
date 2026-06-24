@@ -1,0 +1,43 @@
+package sb.mq.mqImplement.FanoutExchange;
+
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FanoutExchangeConfig {
+
+    public static final String exchangeName = "Data_fanoutExchange";
+    public static final String queueName_1 = "queue_1";
+    public static final String queueName_2 = "queue_2";
+    public static final String queueName_3 = "queue_3";
+
+    @Bean public FanoutExchange fanoutExchange() { return new FanoutExchange(exchangeName, true, false); }
+
+    @Bean public Queue queue_1() { return new Queue(queueName_1, true); }
+
+    @Bean public Queue queue_2() { return new Queue(queueName_2, true); }
+
+    @Bean public Queue queue_3() { return new Queue(queueName_3, true); }
+
+    @Bean public Binding queue_1Bind() {
+        return BindingBuilder
+                .bind(queue_1())
+                .to(fanoutExchange());
+    }
+
+    @Bean public Binding queue_2Bind() {
+        return BindingBuilder
+                .bind(queue_2())
+                .to(fanoutExchange());
+    }
+
+    @Bean public Binding queue_3Bind() {
+        return BindingBuilder
+                .bind(queue_3())
+                .to(fanoutExchange());
+    }
+}

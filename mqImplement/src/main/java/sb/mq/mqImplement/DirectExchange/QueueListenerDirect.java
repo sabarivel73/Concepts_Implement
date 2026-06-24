@@ -1,12 +1,12 @@
-package sb.mq.mqImplement;
+package sb.mq.mqImplement.DirectExchange;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class QueueListener {
-    @RabbitListener(queues = RabbitMQConfig.queueName)
-    public void fun(Data data) {
+public class QueueListenerDirect {
+    @RabbitListener(queues = DirectExchangeConfig.queueName,concurrency = "3-5")
+    public void fun(DataDirect data) {
         IO.println(data.id());
         IO.println(data.name());
         IO.println(data.email());
