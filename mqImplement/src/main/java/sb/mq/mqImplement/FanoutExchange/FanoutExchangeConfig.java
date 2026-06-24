@@ -17,27 +17,27 @@ public class FanoutExchangeConfig {
 
     @Bean public FanoutExchange fanoutExchange() { return new FanoutExchange(exchangeName, true, false); }
 
-    @Bean public Queue queue_1() { return new Queue(queueName_1, true); }
+    @Bean public Queue queue_1Fanout() { return new Queue(queueName_1, true); }
 
-    @Bean public Queue queue_2() { return new Queue(queueName_2, true); }
+    @Bean public Queue queue_2Fanout() { return new Queue(queueName_2, true); }
 
-    @Bean public Queue queue_3() { return new Queue(queueName_3, true); }
+    @Bean public Queue queue_3Fanout() { return new Queue(queueName_3, true); }
 
     @Bean public Binding queue_1Bind() {
         return BindingBuilder
-                .bind(queue_1())
+                .bind(queue_1Fanout())
                 .to(fanoutExchange());
     }
 
     @Bean public Binding queue_2Bind() {
         return BindingBuilder
-                .bind(queue_2())
+                .bind(queue_2Fanout())
                 .to(fanoutExchange());
     }
 
     @Bean public Binding queue_3Bind() {
         return BindingBuilder
-                .bind(queue_3())
+                .bind(queue_3Fanout())
                 .to(fanoutExchange());
     }
 }
