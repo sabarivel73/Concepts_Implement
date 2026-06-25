@@ -12,5 +12,6 @@ public class DataServiceDirect {
     public void fun(Integer id, String name, String email) {
         DataDirect v1 = new DataDirect(id, name, email);
         rabbitTemplate.convertAndSend(DirectExchangeConfig.exchangeName, DirectExchangeConfig.exchangeKey, v1);
+        rabbitTemplate.convertAndSend(DirectExchangeConfig.exchangeName, DirectExchangeConfig.exchangeKey_2, v1);
     }
 }
