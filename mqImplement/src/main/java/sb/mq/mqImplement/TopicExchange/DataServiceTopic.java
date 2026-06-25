@@ -1,12 +1,13 @@
 package sb.mq.mqImplement.TopicExchange;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DataServiceTopic {
     private final RabbitTemplate rabbitTemplate;
-    public DataServiceTopic(RabbitTemplate rabbitTemplate) {
+    public DataServiceTopic(@Qualifier("Common_RT") RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
     public void fun(String name, String email) {

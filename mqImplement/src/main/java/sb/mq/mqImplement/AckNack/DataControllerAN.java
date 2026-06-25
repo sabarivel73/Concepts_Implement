@@ -1,4 +1,4 @@
-package sb.mq.mqImplement.FanoutExchange;
+package sb.mq.mqImplement.AckNack;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/mq")
-public class DataControllerFanout {
-    @Autowired private DataServiceFanout dataService;
-    @PostMapping("/post_1")
+@RequestMapping("mq")
+public class DataControllerAN {
+    @Autowired private DataServiceAN dataServiceAN;
+    @PostMapping("/post_AN")
     public ResponseEntity<String> post(@RequestParam String name, @RequestParam String email) {
-        dataService.fun(name, email);
-        IO.println("Fanout Data List : ");
-        return new ResponseEntity<>("Data sent to fanout queues", HttpStatus.OK);
+        dataServiceAN.fun(name, email);
+        return new ResponseEntity<>("AN Data is sent to a queue", HttpStatus.OK);
     }
 }

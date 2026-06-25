@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("mq_2")
+@RequestMapping("mq")
 public class DataControllerTopic {
     @Autowired private DataServiceTopic dataServiceTopic;
     @PostMapping("post_2")

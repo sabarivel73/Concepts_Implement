@@ -6,8 +6,10 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class TopicExchangeConfig {
     public static final String exchangeName = "Data_Topic_Exchange";
     public static final String queueName_1 = "Data_Queue_1";

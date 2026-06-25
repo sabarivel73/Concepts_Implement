@@ -6,8 +6,10 @@ import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class DirectExchangeConfig {
     public static final String exchangeName = "exchange";
     public static final String exchangeKey = "exchange_key";
@@ -15,7 +17,7 @@ public class DirectExchangeConfig {
     public static final String queueName = "order_queue_1";
     public static final String queueName_2 = "order_queue_2";
 
-    @Bean public DirectExchange exchange() {
+    @Bean public static DirectExchange exchange() {
         return new DirectExchange(exchangeName, true, false);
     }
 
