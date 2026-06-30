@@ -24,24 +24,24 @@ public class TopicExchangeConfig {
 
     @Bean public Queue queue_3Topic() { return new Queue(queueName_3, true); }
 
-    @Bean public Binding bindingQueue_1() {
+    @Bean public Binding bindingQueue_1(Queue queue_1Topic, TopicExchange topicExchange) {
         return BindingBuilder
-                .bind(queue_1Topic())
-                .to(topicExchange())
+                .bind(queue_1Topic)
+                .to(topicExchange)
                 .with("queue_1.one");
     }
 
-    @Bean public Binding bindingQueue_2() {
+    @Bean public Binding bindingQueue_2(Queue queue_2Topic, TopicExchange topicExchange) {
         return BindingBuilder
-                .bind(queue_2Topic())
-                .to(topicExchange())
+                .bind(queue_2Topic)
+                .to(topicExchange)
                 .with("queue_2.two");
     }
 
-    @Bean public Binding bindingQueue_3() {
+    @Bean public Binding bindingQueue_3(Queue queue_3Topic, TopicExchange topicExchange) {
         return BindingBuilder
-                .bind(queue_3Topic())
-                .to(topicExchange())
+                .bind(queue_3Topic)
+                .to(topicExchange)
                 .with("queue_3.*");
     }
 }

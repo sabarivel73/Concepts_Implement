@@ -31,17 +31,17 @@ public class DirectExchangeConfig {
         return new Queue(queueName_2, true);
     }
 
-    @Bean public Binding binding() {
+    @Bean public Binding binding(Queue createQueue, DirectExchange exchange) {
         return BindingBuilder
-                .bind(createQueue())
-                .to(exchange())
+                .bind(createQueue)
+                .to(exchange)
                 .with(exchangeKey);
     }
 
-    @Bean public Binding binding_2() {
+    @Bean public Binding binding_2(Queue createQueue_2, DirectExchange exchange) {
         return BindingBuilder
-                .bind(createQueue_2())
-                .to(exchange())
+                .bind(createQueue_2)
+                .to(exchange)
                 .with(exchangeKey_2);
     }
 }

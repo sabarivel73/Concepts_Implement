@@ -1,9 +1,6 @@
 package sb.mq.mqImplement.AckNack;
 
-import org.springframework.amqp.core.AcknowledgeMode;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -14,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import sb.mq.mqImplement.DirectExchange.DirectExchangeConfig;
 
 @Configuration
 @PropertySource("classpath:AN.properties")
@@ -39,10 +35,10 @@ public class ANConfig {
     @Bean public Queue queueAN() {
         return new Queue(queueNameAN, true);
     }
-    @Bean public Binding bindingAN() {
+    @Bean public Binding bindingAN(Queue queueAN, DirectExchange exchange) {
         return BindingBuilder
-                .bind(queueAN())
-                .to(DirectExchangeConfig.exchange())
+                .bind(queueAN)
+                .to(exchange)
                 .with(exchangeKeyAN);
     }
     @Bean("AN_RT") public RabbitTemplate rabbitTemplate(@Qualifier("AN_CF") ConnectionFactory cf, @Qualifier("MC")MessageConverter ms) {

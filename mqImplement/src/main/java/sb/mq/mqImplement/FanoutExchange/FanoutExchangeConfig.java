@@ -25,21 +25,21 @@ public class FanoutExchangeConfig {
 
     @Bean public Queue queue_3Fanout() { return new Queue(queueName_3, true); }
 
-    @Bean public Binding queue_1Bind() {
+    @Bean public Binding queue_1Bind(Queue queue_1Fanout, FanoutExchange fanoutExchange) {
         return BindingBuilder
-                .bind(queue_1Fanout())
-                .to(fanoutExchange());
+                .bind(queue_1Fanout)
+                .to(fanoutExchange);
     }
 
-    @Bean public Binding queue_2Bind() {
+    @Bean public Binding queue_2Bind(Queue queue_2Fanout, FanoutExchange fanoutExchange) {
         return BindingBuilder
-                .bind(queue_2Fanout())
-                .to(fanoutExchange());
+                .bind(queue_2Fanout)
+                .to(fanoutExchange);
     }
 
-    @Bean public Binding queue_3Bind() {
+    @Bean public Binding queue_3Bind(Queue queue_3Fanout, FanoutExchange fanoutExchange) {
         return BindingBuilder
-                .bind(queue_3Fanout())
-                .to(fanoutExchange());
+                .bind(queue_3Fanout)
+                .to(fanoutExchange);
     }
 }
