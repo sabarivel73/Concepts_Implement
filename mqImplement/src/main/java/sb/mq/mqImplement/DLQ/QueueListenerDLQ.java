@@ -22,9 +22,11 @@ public class QueueListenerDLQ {
         }
     }
     @RabbitListener(queues = DLQConfig.dlqQueue, containerFactory = "AN_LCF")
-    public void fun2(DataDLQ data) {
+    public void fun2(DataDLQ data, Message message, Channel channel) throws Exception {
+        long tag = message.getMessageProperties().getDeliveryTag();
         IO.println("Data from DLQ Queue : ");
         IO.println(data.name());
         IO.println(data.email());
+        channel.basicAck(tag, false);
     }
 }

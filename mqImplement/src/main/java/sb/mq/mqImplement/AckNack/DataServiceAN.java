@@ -1,5 +1,6 @@
 package sb.mq.mqImplement.AckNack;
 
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,6 @@ public class DataServiceAN {
     }
     public void fun(String name, String email) {
         DataAN v1 = new DataAN(name, email);
-        rabbitTemplate.convertAndSend(DirectExchangeConfig.exchangeName, ANConfig.exchangeKeyAN, v1);
+        rabbitTemplate.convertAndSend(DirectExchangeConfig.exchangeName, ANConfig.exchangeKeyAN, v1, new CorrelationData("id_1"));
     }
 }

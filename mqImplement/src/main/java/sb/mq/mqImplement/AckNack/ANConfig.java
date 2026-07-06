@@ -30,6 +30,8 @@ public class ANConfig {
         cf.setPort(port);
         cf.setUsername(username);
         cf.setPassword(password);
+        cf.setPublisherConfirmType(CachingConnectionFactory.ConfirmType.CORRELATED);
+        cf.setPublisherReturns(true);
         return cf;
     }
     @Bean public Queue queueAN() {
@@ -44,6 +46,7 @@ public class ANConfig {
     @Bean("AN_RT") public RabbitTemplate rabbitTemplate(@Qualifier("AN_CF") ConnectionFactory cf, @Qualifier("MC")MessageConverter ms) {
         RabbitTemplate rt = new RabbitTemplate(cf);
         rt.setMessageConverter(ms);
+        rt.setMandatory(true);
         return rt;
     }
 
