@@ -1,0 +1,62 @@
+2026-07-15T17:37:08.006+05:30  INFO 6896 --- [main] s.mq.mqImplement.MqImplementApplication  : Starting MqImplementApplication using Java 26.0.1 with PID 6896 (C:\Study\Concepts_Implement\mqImplement\target\classes started by sabarivel.ganesan in C:\Study\Concepts_Implement)
+2026-07-15T17:37:08.008+05:30  INFO 6896 --- [main] s.mq.mqImplement.MqImplementApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-07-15T17:37:08.636+05:30  INFO 6896 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-15T17:37:08.668+05:30  INFO 6896 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JPA repository interfaces.
+2026-07-15T17:37:09.040+05:30  INFO 6896 --- [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-15T17:37:09.049+05:30  INFO 6896 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-15T17:37:09.050+05:30  INFO 6896 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-15T17:37:09.120+05:30  INFO 6896 --- [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1067 ms
+2026-07-15T17:37:09.218+05:30  INFO 6896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-15T17:37:09.349+05:30  INFO 6896 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:3a49e831-e86d-41a5-81e2-01f0b9bbc319 user=SA
+2026-07-15T17:37:09.350+05:30  INFO 6896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-15T17:37:09.375+05:30  INFO 6896 --- [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-15T17:37:09.416+05:30  INFO 6896 --- [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-07-15T17:37:09.725+05:30  INFO 6896 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-15T17:37:09.777+05:30  INFO 6896 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:3a49e831-e86d-41a5-81e2-01f0b9bbc319]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 3A49E831-E86D-41A5-81E2-01F0B9BBC319/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-15T17:37:10.118+05:30  INFO 6896 --- [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-15T17:37:10.125+05:30  INFO 6896 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-15T17:37:10.277+05:30  WARN 6896 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-15T17:37:10.543+05:30  INFO 6896 --- [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-15T17:37:10.545+05:30  INFO 6896 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: localhost:5672
+2026-07-15T17:37:10.589+05:30  INFO 6896 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: Common_CF#3acc65f0:0/SimpleConnection@71e89a26 [delegate=amqp://guest@127.0.0.1:5672/, localPort=50493]
+2026-07-15T17:37:10.676+05:30  INFO 6896 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: localhost:5672
+2026-07-15T17:37:10.682+05:30  INFO 6896 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: AN_CF#280099a0:0/SimpleConnection@35e3f3b8 [delegate=amqp://user@127.0.0.1:5672/, localPort=50494]
+2026-07-15T17:37:10.719+05:30  INFO 6896 --- [main] s.mq.mqImplement.MqImplementApplication  : Started MqImplementApplication in 3.126 seconds (process running for 3.611)
+2026-07-15T17:37:54.516+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#10-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.517+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.518+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.520+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-4] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.521+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.522+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.523+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.523+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#6-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.524+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#7-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.524+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#8-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.526+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#9-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-07-15T17:37:54.930+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#10-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#9-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#8-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-4] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.976+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#6-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.977+05:30  INFO 6896 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#7-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-07-15T17:37:54.979+05:30  INFO 6896 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-15T17:37:54.990+05:30  INFO 6896 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-15T17:37:55.001+05:30  INFO 6896 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-15T17:37:55.003+05:30  INFO 6896 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-15T17:37:55.006+05:30  INFO 6896 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

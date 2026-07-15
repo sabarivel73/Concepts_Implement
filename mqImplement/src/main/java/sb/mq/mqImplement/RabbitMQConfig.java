@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:Common.properties")
 public class RabbitMQConfig {
 
     @Value("${spring.rabbitmq.host}") private String host;
