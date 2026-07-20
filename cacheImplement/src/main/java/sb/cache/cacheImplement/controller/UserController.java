@@ -8,7 +8,7 @@ import sb.cache.cacheImplement.entity.User_Table;
 import sb.cache.cacheImplement.service.UserService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/{api}")
 public class UserController {
     @Autowired private UserService userService;
     @PostMapping("/post")
