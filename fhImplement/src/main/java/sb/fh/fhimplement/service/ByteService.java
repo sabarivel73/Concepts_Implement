@@ -4,20 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import sb.fh.fhimplement.entity.EntityData;
-import sb.fh.fhimplement.repository.DataRepo;
+import sb.fh.fhimplement.entity.ByteEntity;
+import sb.fh.fhimplement.repository.ByteRepo;
 import sb.fh.fhimplement.util.Compress;
 
 import java.io.IOException;
 import java.util.Optional;
 
 @Service
-public class DataService {
+public class ByteService {
     @Autowired
-    private DataRepo dataRepo;
+    private ByteRepo dataRepo;
 
     public String postData(MultipartFile file) throws IOException {
-        EntityData data = new EntityData();
+        ByteEntity data = new ByteEntity();
         data.setName(file.getOriginalFilename());
         data.setType(file.getContentType());
         data.setFile(Compress.compress(file.getBytes()));
@@ -26,11 +26,17 @@ public class DataService {
     }
 
     @Transactional(readOnly = true)
-    public EntityData getData(String fileName) throws IOException {
-        Optional<EntityData> value = dataRepo.findByName(fileName);
+    public ByteEntity getData(String fileName) throws IOException {
+        Optional<ByteEntity> value = dataRepo.findByName(fileName);
         if(value.isEmpty()) return null;
-        EntityData data = value.get();
+        ByteEntity data = value.get();
         data.setFile(Compress.decompress(data.getFile()));
         return data;
+    }
+
+    @Transactional
+    public String deleteData(String fileName) {
+        dataRepo.deleteByName(fileName);
+        return "File deleted successfully";
     }
 }
