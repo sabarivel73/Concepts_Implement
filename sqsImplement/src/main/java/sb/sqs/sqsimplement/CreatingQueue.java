@@ -13,14 +13,13 @@ public class CreatingQueue {
     @Autowired
     private SqsClient sqsClient;
 
-    public String queueUrl(String queueName) {
+    public void queueUrl(String queueName) {
         String queueUrl = createQueue(queueName);
         String dlqUrl = createDLQQueue(queueName);
         String queueArn = getQueueArn(queueUrl);
         String dlqArn = getQueueArn(dlqUrl);
         configMainQueueRedrivePolicy(queueUrl, dlqArn);
         configDlqRedriveAllowPolicy(dlqUrl, queueArn);
-        return queueUrl+"\n"+dlqUrl;
     }
 
     public String createQueue(String queueName){

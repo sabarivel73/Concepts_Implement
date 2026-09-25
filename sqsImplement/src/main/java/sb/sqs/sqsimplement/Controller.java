@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/sqs")
 public class Controller {
     @Autowired private CreatingQueue queue;
-    @PostMapping("/createQueue")
-    public ResponseEntity<String> createQueueResponse(@RequestParam String queueName) {
-        return new ResponseEntity<>(queue.queueUrl(queueName), HttpStatus.CREATED);
+    @Autowired private Producer producer;
+    @PostMapping("/SendQueue")
+    public ResponseEntity<String> createQueueResponse(@RequestParam String message) {
+        producer.sendMessage(message);
+        return new ResponseEntity<>("Message Sent", HttpStatus.ACCEPTED);
     }
     @GetMapping("/getQueue")
     public ResponseEntity<String> getQueueResponse(@RequestParam String queueName) {

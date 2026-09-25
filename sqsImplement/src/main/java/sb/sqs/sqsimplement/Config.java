@@ -10,8 +10,8 @@ import software.amazon.awssdk.services.sqs.SqsClient;
 
 @Configuration
 public class Config {
-    @Value("${spring.aws.access_key}") String accessKey;
-    @Value("${spring.aws.secret_key}") String secretKey;
+    @Value("${spring.cloud.aws.credentials.access-key}") String accessKey;
+    @Value("${spring.cloud.aws.credentials.secret-key}") String secretKey;
     @Value("${spring.cloud.aws.region.static}") String region;
 
     @Bean
