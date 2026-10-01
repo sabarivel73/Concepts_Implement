@@ -9,10 +9,9 @@ public class Producer {
     private final SqsTemplate sqsTemplate;
     private final String queueName;
 
-    public Producer(SqsTemplate sqsTemplate, CreatingQueue queue) {
+    public Producer(SqsTemplate sqsTemplate) {
         this.sqsTemplate = sqsTemplate;
         queueName = "queue_1";
-        queue.queueUrl(queueName);
     }
 
     public void sendMessage(String message) {
