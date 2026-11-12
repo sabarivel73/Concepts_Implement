@@ -11,7 +11,7 @@ public class Producer {
 
     public Producer(SqsTemplate sqsTemplate) {
         this.sqsTemplate = sqsTemplate;
-        queueName = "queue_1";
+        queueName = "order-queue";
     }
 
     public void sendMessage(String message) {
